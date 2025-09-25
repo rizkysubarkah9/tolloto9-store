@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tolloto Store</title>
+  <!-- Import Google Font Press Start 2P -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Press Start 2P', cursive;
+      background: #f0f8ff;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+    .store-container {
+      max-width: 600px;
+      margin: auto;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #007acc;
+      font-size: 24px;
+    }
+    .product {
+      border: 2px solid #ffcc00;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 15px 0;
+      background: #e6f7ff;
+    }
+    .product h2 {
+      margin: 0;
+      color: #005999;
+      font-size: 16px;
+    }
+    .product img {
+      width: 100%;
+      border-radius: 8px;
+      margin: 10px 0;
+    }
+    .controls {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+    }
+    .controls button {
+      background: #ffcc00;
+      border: none;
+      padding: 8px 12px;
+      margin: 0 5px;
+      cursor: pointer;
+      font-size: 14px;
+      border-radius: 6px;
+      color: #000;
+      font-weight: bold;
+    }
+    .controls span {
+      font-size: 14px;
+      font-weight: bold;
+      min-width: 30px;
+      text-align: center;
+      display: inline-block;
+    }
+    .total {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #005999;
+    }
+    .btn-checkout {
+      display: block;
+      width: 100%;
+      background: #007acc;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      margin-top: 15px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .btn-checkout:hover {
+      background: #005999;
+    }
+    .payment-info {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 12px;
+      background: #fffbe6;
+      padding: 10px;
+      border: 1px solid #ffcc00;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="store-container">
+    <h1>🔥 Tolloto Store 🔥</h1>
+
+    <!-- Joki 1 Jam -->
+    <div class="product">
+      <h2>Joki 1 Jam (Rp 1.000)</h2>
+      <img src="https://via.placeholder.com/400x200?text=Joki+1+Jam" alt="Joki 1 Jam">
+      <div class="controls">
+        <button onclick="updateQty('joki1jam', -1)">-</button>
+        <span id="qty-joki1jam">0</span>
+        <button onclick="updateQty('joki1jam', 1)">+</button>
+      </div>
+      <p>Total: Rp <span id="total-joki1jam">0</span></p>
+    </div>
+
+    <!-- Joki AFK 1 Hari -->
+    <div class="product">
+      <h2>Joki AFK 1 Hari (Rp 15.000)</h2>
+      <img src="https://via.placeholder.com/400x200?text=Joki+AFK+1+Hari" alt="Joki AFK 1 Hari">
+      <div class="controls">
+        <button onclick="updateQty('afk', -1)">-</button>
+        <span id="qty-afk">0</span>
+        <button onclick="updateQty('afk', 1)">+</button>
+      </div>
+      <p>Total: Rp <span id="total-afk">0</span></p>
+    </div>
+
+    <!-- Enchant Stone -->
+    <div class="product">
+      <h2>Enchant Stone (Rp 1.000 / 10 biji)</h2>
+      <img src="https://via.placeholder.com/400x200?text=Enchant+Stone" alt="Enchant Stone">
+      <div class="controls">
+        <button onclick="updateQty('stone', -1)">-</button>
+        <span id="qty-stone">0</span>
+        <button onclick="updateQty('stone', 1)">+</button>
+      </div>
+      <p>Total: Rp <span id="total-stone">0</span></p>
+    </div>
+
+    <!-- Koin 100K -->
+    <div class="product">
+      <h2>Koin 100K (Rp 3.500)</h2>
+      <img src="https://via.placeholder.com/400x200?text=Koin+100K" alt="Koin 100K">
+      <div class="controls">
+        <button onclick="updateQty('coin100k', -1)">-</button>
+        <span id="qty-coin100k">0</span>
+        <button onclick="updateQty('coin100k', 1)">+</button>
+      </div>
+      <p>Total: Rp <span id="total-coin100k">0</span></p>
+    </div>
+
+    <!-- Koin 1M via Mitos -->
+    <div class="product">
+      <h2>Koin 1M via Mitos (Rp 25.000)</h2>
+      <img src="https://via.placeholder.com/400x200?text=Koin+1M+via+Mitos" alt="Koin 1M via Mitos">
+      <div class="controls">
+        <button onclick="updateQty('coin1m', -1)">-</button>
+        <span id="qty-coin1m">0</span>
+        <button onclick="updateQty('coin1m', 1)">+</button>
+      </div>
+      <p>Total: Rp <span id="total-coin1m">0</span></p>
+    </div>
+
+    <!-- Total Semua -->
+    <div class="total">
+      Total Semua: Rp <span id="grand-total">0</span>
+    </div>
+
+    <!-- Tombol Checkout -->
+    <button class="btn-checkout" onclick="checkout()">
+      Checkout via WhatsApp
+    </button>
+
+    <!-- Info Pembayaran -->
+    <div class="payment-info">
+      💳 Pembayaran via DANA: <b>085156222829</b><br>
+      📱 WhatsApp: <b>085156222829</b>
+    </div>
+  </div>
+
+  <script>
+    let qty = {
+      joki1jam: 0,
+      afk: 0,
+      stone: 0,
+      coin100k: 0,
+      coin1m: 0
+    };
+
+    const prices = {
+      joki1jam: 1000,
+      afk: 15000,
+      stone: 1000,
+      coin100k: 3500,
+      coin1m: 25000
+    };
+
+    function updateQty(product, change) {
+      qty[product] = Math.max(0, qty[product] + change);
+      renderTotals();
+    }
+
+    function renderTotals() {
+      let grandTotal = 0;
+
+      for (let p in qty) {
+        let total = qty[p] * prices[p];
+        document.getElementById("qty-" + p).innerText = qty[p];
+        document.getElementById("total-" + p).innerText = total.toLocaleString();
+        grandTotal += total;
+      }
+
+      document.getElementById("grand-total").innerText = grandTotal.toLocaleString();
+    }
+
+    function checkout() {
+      const waNumber = "6285156222829";
+      let grandTotal = 0;
+      let message = "Halo Tolloto Store, saya mau order:%0A";
+
+      for (let p in qty) {
+        if (qty[p] > 0) {
+          let total = qty[p] * prices[p];
+          grandTotal += total;
+          let itemName = "";
+          if (p === "joki1jam") itemName = "Joki 1 Jam";
+          if (p === "afk") itemName = "Joki AFK 1 Hari";
+          if (p === "stone") itemName = `Enchant Stone (${qty[p]*10} biji)`;
+          if (p === "coin100k") itemName = `Koin 100K (x${qty[p]})`;
+          if (p === "coin1m") itemName = `Koin 1M via Mitos (x${qty[p]})`;
+          message += `- ${itemName} = Rp ${total.toLocaleString()}%0A`;
+        }
+      }
+
+      if (grandTotal === 0) {
+        alert("Pilih produk dulu sebelum checkout!");
+        return;
+      }
+
+      message += `Total: Rp ${grandTotal.toLocaleString()}%0A`;
+      message += "Metode pembayaran: DANA (085156222829)";
+
+      window.open(`https://wa.me/${waNumber}?text=${message}`, "_blank");
+    }
+  </script>
+</body>
+</html>
