@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Tolloto Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: #e6f7ff;
+      margin: 0;
+      padding: 0;
+      color: #222;
+    }
+    header {
+      background: #00bfff;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 { margin: 0; font-size: 2em; }
+    .trust-box {
+      background: #fffbea;
+      border: 2px solid #ffd700;
+      border-radius: 10px;
+      padding: 10px;
+      margin: 15px auto;
+      max-width: 800px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #333;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .trust-box span {
+      background: #ffd700;
+      padding: 6px 12px;
+      border-radius: 6px;
+    }
+    .container {
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .product {
+      background: #fffbea;
+      border: 2px solid #ffd700;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .product h2 {
+      margin-top: 0;
+      color: #333;
+    }
+    .product img {
+      width: 100%;
+      border-radius: 10px;
+      margin: 10px 0;
+    }
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .controls button {
+      padding: 8px 14px;
+      background: #ffd700;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+    .controls button:hover {
+      background: #ffcc00;
+    }
+    .checkout {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .checkout button {
+      padding: 15px 25px;
+      font-size: 18px;
+      background: #00bfff;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .checkout button:hover {
+      background: #009acd;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🛒 Tolloto Store</h1>
+    <p>Joki & Item Game Fish It Roblox</p>
+  </header>
+
+  <!-- Kata-kata kepercayaan -->
+  <div class="trust-box">
+    <span>✅ Akun 100% Aman</span>
+    <span>🔒 Anti Hack & Privasi Terjaga</span>
+    <span>⚡ Proses Cepat</span>
+    <span>💯 Trusted Seller</span>
+  </div>
+  
+  <div class="container">
+
+    <!-- Produk 1 -->
+    <div class="product">
+      <h2>Joki AFK (Rp 15.000 / Hari)</h2>
+      <img src="https://via.placeholder.com/400x200?text=Joki+AFK" alt="Joki AFK">
+      <div class="controls">
+        <button onclick="updateQty('afk', -1)">-</button>
+        <span id="qty-afk">0</span>
+        <button onclick="updateQty('afk', 1)">+</button>
+      </div>
+      <p>Total: Rp <span id="total-afk">0</span></p>
+    </div>
+
+    <!-- Produk 2 -->
+    <div class="product">
+      <h2>Enchant Stone (Rp 1.000 / 10 biji)</h2>
+      <img src="https://via.placeholder.com/400x200?text=Enchant+Stone" alt="Enchant Stone">
+      <div class="controls">
+        <button onclick="updateQty('stone', -1)">-</button>
+        <span id="qty-stone">0</span>
+        <button onclick="updateQty('stone', 1)">+</button>
+      </div>
+      <p>Total: Rp <span id="total-stone">0</span></p>
+    </div>
+
+    <!-- Produk 3 -->
+    <div class="product">
+      <h2>Joki 1 Jam (Rp 1.000)</h2>
+      <img src="https://via.placeholder.com/400x200?text=Joki+1+Jam" alt="Joki 1 Jam">
+      <div class="controls">
+        <button onclick="updateQty('joki1h', -1)">-</button>
+        <span id="qty-joki1h">0</span>
+        <button onclick="updateQty('joki1h', 1)">+</button>
+      </div>
+      <p>Total: Rp <span id="total-joki1h">0</span></p>
+    </div>
+
+    <!-- Produk 4 -->
+    <div class="product">
+      <h2>Koin 100k (Rp 3.500)</h2>
+      <img src="https://via.placeholder.com/400x200?text=Koin+100k" alt="Koin 100k">
+      <div class="controls">
+        <button onclick="updateQty('coin100k', -1)">-</button>
+        <span id="qty-coin100k">0</span>
+        <button onclick="updateQty('coin100k', 1)">+</button>
+      </div>
+      <p>Total: Rp <span id="total-coin100k">0</span></p>
+    </div>
+
+    <!-- Produk 5 -->
+    <div class="product">
+      <h2>Koin 1M via Mitos (Rp 25.000)</h2>
+      <img src="https://via.placeholder.com/400x200?text=Koin+1M+Mitos" alt="Koin 1M via Mitos">
+      <div class="controls">
+        <button onclick="updateQty('coin1m', -1)">-</button>
+        <span id="qty-coin1m">0</span>
+        <button onclick="updateQty('coin1m', 1)">+</button>
+      </div>
+      <p>Total: Rp <span id="total-coin1m">0</span></p>
+    </div>
+
+    <!-- Produk 6 -->
+    <div class="product">
+      <h2>Joki Koin 1M (Rp 10.000)</h2>
+      <img src="https://via.placeholder.com/400x200?text=Joki+Koin+1M+Rp10000" alt="Joki Koin 1M Rp10000">
+      <div class="controls">
+        <button onclick="updateQty('coin1m10k', -1)">-</button>
+        <span id="qty-coin1m10k">0</span>
+        <button onclick="updateQty('coin1m10k', 1)">+</button>
+      </div>
+      <p>Total: Rp <span id="total-coin1m10k">0</span></p>
+    </div>
+
+    <!-- Checkout -->
+    <div class="checkout">
+      <button onclick="checkout()">Checkout Semua</button>
+    </div>
+  </div>
+
+  <script>
+    const prices = {
+      afk: 15000,
+      stone: 1000,
+      joki1h: 1000,
+      coin100k: 3500,
+      coin1m: 25000,
+      coin1m10k: 10000
+    };
+
+    function updateQty(item, change) {
+      const qtyEl = document.getElementById(`qty-${item}`);
+      let qty = parseInt(qtyEl.textContent) + change;
+      if (qty < 0) qty = 0;
+      qtyEl.textContent = qty;
+      document.getElementById(`total-${item}`).textContent = (qty * prices[item]).toLocaleString();
+    }
+
+    function checkout() {
+      let message = "Halo, saya ingin memesan:\n";
+      let total = 0;
+
+      for (let key in prices) {
+        const qty = parseInt(document.getElementById(`qty-${key}`).textContent);
+        if (qty > 0) {
+          const subtotal = qty * prices[key];
+          message += `- ${key} x${qty} = Rp ${subtotal.toLocaleString()}\n`;
+          total += subtotal;
+        }
+      }
+
+      message += `\nTotal: Rp ${total.toLocaleString()}\nPembayaran via DANA: 085156222829`;
+      const waUrl = `https://wa.me/6285156222829?text=${encodeURIComponent(message)}`;
+      window.open(waUrl, "_blank");
+    }
+  </script>
+</body>
+</html>
